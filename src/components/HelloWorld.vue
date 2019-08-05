@@ -28,6 +28,8 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    <button @click="handleShare">share</button>
+    <input v-if="isCopyBoxShowing" type="text" value="Hello World!" />
   </div>
 </template>
 
@@ -36,6 +38,22 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String,
+  },
+  data() {
+    return {
+      isCopyBoxShowing: false,
+    };
+  },
+  methods: {
+    handleShare() {
+      if (navigator.share) {
+        navigator.share({
+          text: 'Hello World!',
+        });
+      } else {
+        this.isCopyBoxShowing = true;
+      }
+    },
   },
 };
 </script>
