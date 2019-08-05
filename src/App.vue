@@ -1,7 +1,10 @@
 <template>
   <div id="app">
+    <div class="header">
+      PWA (Vue)
+      <button v-if="promptEvent" @click="handlePromotion">install</button>
+    </div>
     <HelloWorld />
-    <button v-if="promptEvent" @click="handlePromotion">install</button>
   </div>
 </template>
 
