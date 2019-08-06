@@ -1,9 +1,11 @@
 <template>
   <div class="hello">
-    {{fate}}
-    <button @click="chance">抽籤</button>
-    <button v-if="fate" @click="handleShare">分享</button>
-    <textarea v-if="isCopyBoxShowing" :value="message" />
+    <div class="fate">{{fate}}</div>
+    <div>
+      <button @click="chance">抽籤</button>
+      <button v-if="fate" @click="handleShare">分享</button>
+    </div>
+    <textarea v-if="isCopyBoxShowing" :value="message" class="share-text" />
   </div>
 </template>
 
@@ -43,4 +45,32 @@ export default {
 </script>
 
 <style scoped>
+.hello {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hello button {
+  background-color: #FFAB73;
+  margin: 10px;
+  font-size: 14px;
+}
+
+.fate {
+  font-size: 80px;
+  margin: 20px;
+  height: 100px;
+}
+
+.share-text {
+  width: 60%;
+  border-radius: 5px;
+  border: solid #bbbbbb 1px;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 10px;
+  margin-top: 20px;
+  outline: none;
+}
 </style>
